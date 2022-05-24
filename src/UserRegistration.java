@@ -11,8 +11,8 @@ public class UserRegistration {
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
-            System.out.println("1. First Name\n2. Last Name\n3. Email\n4. Phone Number\n5. Password\n6. Password with at least one upper case" +
-                    "\n0. Exit");
+            System.out.println("1. First Name\n2. Last Name\n3. Email\n4. Phone Number\n5. Password\n6. Password with at least one upper case"
+                    + "\n7. Password with at least one numeric number\n0. Exit");
             System.out.println("Enter choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -57,6 +57,13 @@ public class UserRegistration {
                     boolean isPassword1 = Pattern.matches("^(?=[a-z])(?=.*[A-Z]).{8,20}$", password1);
                     if (isPassword1) System.out.println("Password is valid");
                     else System.out.println("Please check Password");
+                    break;
+                case 7:
+                    System.out.println("Enter Password");
+                    String password2 = scanner.next();
+                    boolean isPassword2 = Pattern.matches("^(?=[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,20}$", password2);
+                    if (isPassword2) System.out.println("Password is valid");
+                    else System.out.println("Password is Invalid");
                     break;
                 default:
                     break;

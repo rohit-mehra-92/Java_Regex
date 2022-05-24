@@ -7,11 +7,11 @@ public class UserRegistration {
         userRegistration.addUser();
     }
 
-    private void addUser() {
+    public void addUser() {
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
-            System.out.println("1. First Name\n2. Last Name\n3. Email\n0. Exit");
+            System.out.println("1. First Name\n2. Last Name\n3. Email\n4.Phone number\n0. Exit");
             System.out.println("Enter choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -35,6 +35,13 @@ public class UserRegistration {
                     boolean isMailId = Pattern.matches("^[a-z0-9]+[.]*[0-9a-z]*@[a-z0-9]+.[a-z]{2,6}.[a-z]*$", email);
                     if (isMailId) System.out.println("Email id is valid");
                     else System.out.println("Email Id is Invalid");
+                    break;
+                case 4:
+                    System.out.println("Enter Phone number");
+                    String phoneNumber = scanner.next();
+                    boolean isPhoneNumber = Pattern.matches("^[1-9]+[0-9]+[0-9]{10}$", phoneNumber);
+                    if (isPhoneNumber) System.out.println("phone number is valid ");
+                    else System.out.println("Phone number is Invalid");
                     break;
                 default:
                     break;
